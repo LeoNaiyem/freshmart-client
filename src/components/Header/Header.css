@@ -1,0 +1,26 @@
+.header {
+  width: 100%;
+  height: 70px;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.brand {
+  color: #da4e0d;
+  font-size: 25px;
+  font-weight: 900;
+}
+.navigation .nav-link {
+  padding: 10px 15px;
+  font-weight: 600;
+}
+.navigation .green-btn {
+  margin-left: 5px;
+  padding: 8px 20px;
+  color: white;
+  background-color: #05c005;
+  border: none;
+  border-radius: 5px;
+  font-weight: 700;
+}
