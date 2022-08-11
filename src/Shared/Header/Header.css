@@ -7,7 +7,7 @@
   align-items: center;
 }
 .brand {
-  color: #da4e0d;
+  color: #039103;
   font-size: 25px;
   font-weight: 900;
 }
@@ -15,12 +15,16 @@
   padding: 10px 15px;
   font-weight: 600;
 }
-.navigation .green-btn {
+.green-btn {
   margin-left: 5px;
   padding: 8px 20px;
   color: white;
-  background-color: #05c005;
+  background-color: #039103;
   border: none;
   border-radius: 5px;
-  font-weight: 700;
+  font-weight: 500;
+  cursor: pointer;
+}
+.green-btn:hover {
+  background: #039103;
 }
