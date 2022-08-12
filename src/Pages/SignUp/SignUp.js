@@ -5,11 +5,11 @@ import Container from "@mui/material/Container";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-const SignIn = () => {
+const SignUp = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => console.log(data);
   return (
-    <Container>
+    <Container sx={{mb:5}}>
       <Link to="/">
         <Typography
           sx={{
@@ -24,22 +24,36 @@ const SignIn = () => {
       </Link>
       <Box
         sx={{
-          minHeight: "75vh",
+          minHeight: "70vh",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
         }}
       >
-        <Paper elevation={3} sx={{ width: "30%", p: 4 }}>
+        <Paper elevation={3} sx={{ width: "35%", p: 3 }}>
           <Typography
             sx={{ fontWeight: 600, mb: 1 }}
             variant="h6"
             color="#133730"
           >
-            Login
+            Create An Account
           </Typography>
           <form onSubmit={handleSubmit(onSubmit)}>
+            <TextField
+              {...register("name", {
+                required: {
+                  value: true,
+                  maxLength: 20,
+                  message: "Name is required",
+                },
+              })}
+              sx={{ width: "100%", mb: 3 }}
+              id="standard-basic"
+              label="Your Name"
+              type="text"
+              variant="standard"
+            />
             <TextField
               {...register("email", {
                 required: {
@@ -68,29 +82,43 @@ const SignIn = () => {
               type="password"
               variant="standard"
             />
+            <TextField
+              {...register("confirmPassword", {
+                required: {
+                  value: true,
+                  maxLength: 20,
+                  message: "Password is not matching",
+                },
+              })}
+              sx={{ width: "100%", mb: 3 }}
+              id="standard-basic"
+              label="Retype Your Password"
+              type="password"
+              variant="standard"
+            />
             <Button
               sx={{ background: "#133730", width: "100%", mb: 1 }}
               type="submit"
               variant="contained"
             >
-              Login
+              Create An Account
             </Button>
           </form>
           <Typography sx={{ fontSize: "15px", mt: 5 }} variant="p">
-            Don't have an account?&nbsp;
-            <Link to="/signUp">
+            Already have an account?&nbsp;
+            <Link to="/signIn">
               <Typography
                 sx={{ color: "#71BA58", fontSize: "15px", textDecoration:'underline' }}
                 variant="p"
                 color="primary"
               >
-                Create an account
+                Login
               </Typography>
             </Link>
           </Typography>
         </Paper>
         <Box sx={{ mt: 2 }}>--------------------Or--------------------</Box>
-        <Box sx={{ width: "30%" }}>
+        <Box sx={{ width: "35%" }}>
           <Button
             sx={{ width: "100%", my: 2, borderRadius: "15px" }}
             variant="outlined"
@@ -111,4 +139,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default SignUp;

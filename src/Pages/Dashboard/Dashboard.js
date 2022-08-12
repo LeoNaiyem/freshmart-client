@@ -19,7 +19,7 @@ import PropTypes from "prop-types";
 import * as React from "react";
 import { Link, Outlet } from "react-router-dom";
 
-const drawerWidth = 240;
+const drawerWidth = 250;
 
 const Dashboard = (props) => {
   const { window } = props;
@@ -30,8 +30,25 @@ const Dashboard = (props) => {
   };
 
   const drawer = (
-    <div>
-      <List sx={{ padding: "4rem 0.5rem", background: "#133730", height: "100vh" }}>
+    <div style={{background: "#133730"}}>
+      <Link to="/">
+        <Typography
+        variant="h5"
+          sx={{
+            letterSpacing:'2px',
+            color: "#faf3f3",
+            fontSize: "16px",
+            paddingTop:'20px',
+            textAlign: "center",
+            fontWeight: 600,
+          }}
+        >
+          FRESHMART CO-OP
+        </Typography>
+      </Link>
+      <List
+        sx={{ padding: "3rem 0.5rem", height: "100vh" }}
+      >
         <Link to="/home">
           <ListItem sx={{ color: "lightgrey" }} disablePadding>
             <ListItemButton>
@@ -152,7 +169,7 @@ const Dashboard = (props) => {
         component="main"
         sx={{
           flexGrow: 1,
-          marginTop: '50px',
+          marginTop: "50px",
           p: 5,
           width: { sm: `calc(100% - ${drawerWidth}px)` },
         }}

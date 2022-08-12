@@ -41,7 +41,6 @@ const AddProduct = () => {
                 reset();
                 toast.success("Product Added Successfully")
               }
-              console.log(inserted);
             });
         }
       })
@@ -51,10 +50,10 @@ const AddProduct = () => {
   };
   return (
     <Container sx={{ display: "flex", justifyContent: "center" }}>
-      <Paper elevation={3} sx={{ width: "90%", padding: "1.5rem 2.5rem" }}>
+      <Paper elevation={3} sx={{ width: "90%", padding: "2rem 2.5rem" }}>
         <Typography
-          sx={{ fontWeight: 600, my: 2 }}
-          variant="h6"
+          sx={{ fontWeight: 700, mb: 3 }}
+          variant="h5"
           color="#133730"
         >
           Add A Product
@@ -62,7 +61,7 @@ const AddProduct = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <TextField
             {...register("productName", {
-              required: { value: true, message: "Name Photo is required" },
+              required: { value: true, message: "Name is required" },
             })}
             sx={{ width: "50%", pr: 1, mb: 2 }}
             id="outlined-basic"
