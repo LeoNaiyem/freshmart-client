@@ -4,12 +4,27 @@ import { Box, Button, Paper, TextField, Typography } from "@mui/material";
 import Container from "@mui/material/Container";
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 const SignUp = () => {
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const { register, handleSubmit, reset } = useForm();
+  const { handelCreateUser } = useAuth();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location?.state?.from?.pathname || '/';
+
+  //handling create user
+  const onSubmit = (data) => {
+    const { email, password, confirmPassword, name } = data;
+    if (password !== confirmPassword) {
+      return alert("Passwords Are Not Matching!");
+    }
+    handelCreateUser(name, email, password, navigate, from);
+    reset();
+  };
+
   return (
-    <Container sx={{mb:5}}>
+    <Container sx={{ mb: 5 }}>
       <Link to="/">
         <Typography
           sx={{
@@ -108,7 +123,11 @@ const SignUp = () => {
             Already have an account?&nbsp;
             <Link to="/signIn">
               <Typography
-                sx={{ color: "#71BA58", fontSize: "15px", textDecoration:'underline' }}
+                sx={{
+                  color: "#71BA58",
+                  fontSize: "15px",
+                  textDecoration: "underline",
+                }}
                 variant="p"
                 color="primary"
               >

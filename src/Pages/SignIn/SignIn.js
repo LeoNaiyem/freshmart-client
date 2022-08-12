@@ -4,10 +4,23 @@ import { Box, Button, Paper, TextField, Typography } from "@mui/material";
 import Container from "@mui/material/Container";
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+
+
+
 const SignIn = () => {
+  const { handleGoogleLogin, handleSignInUser } = useAuth();
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location?.state?.from?.pathname || "/";
+
+  // handling existing user's signIn
+  const onSubmit = (data) => {
+    const { email, password } = data;
+    handleSignInUser(email, password, navigate, from);
+  };
   return (
     <Container>
       <Link to="/">
@@ -80,7 +93,11 @@ const SignIn = () => {
             Don't have an account?&nbsp;
             <Link to="/signUp">
               <Typography
-                sx={{ color: "#71BA58", fontSize: "15px", textDecoration:'underline' }}
+                sx={{
+                  color: "#71BA58",
+                  fontSize: "15px",
+                  textDecoration: "underline",
+                }}
                 variant="p"
                 color="primary"
               >
@@ -99,6 +116,7 @@ const SignIn = () => {
             Continue with Facebook
           </Button>
           <Button
+            onClick={() => handleGoogleLogin(navigate, from)}
             sx={{ width: "100%", borderRadius: "15px" }}
             variant="outlined"
             startIcon={<GoogleIcon />}

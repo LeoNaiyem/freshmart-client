@@ -17,7 +17,6 @@ const SingleProduct = ({ product }) => {
   return (
     <Grid item xs={4} sm={4} md={4}>
       <Card
-        gutterBottom
         sx={{
           height: "370px",
           width: "350px",
@@ -38,7 +37,6 @@ const SingleProduct = ({ product }) => {
         <CardContent>
           <Typography
             sx={{ fontSize: "18px", fontWeight: 600, textAlign: "center" }}
-            gutterBottom
             variant="h5"
             component="div"
           >

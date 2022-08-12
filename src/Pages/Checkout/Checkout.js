@@ -10,6 +10,7 @@ import TableRow from "@mui/material/TableRow";
 import { Box } from "@mui/system";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import Header from "../../Shared/Header/Header";
 
 const Checkout = () => {
@@ -24,6 +25,9 @@ const Checkout = () => {
       });
   }, [id]);
   const { name, price } = product;
+  const handleCheckout = () => {
+    toast.success('Your Order has been confirmed');
+  }
   return (
     <>
       <Header />
@@ -62,7 +66,7 @@ const Checkout = () => {
                 </Table>
             </TableContainer>
             <Link to='/payment'>
-                <Button sx={{mt:3 , p:1, background: '#039103' }} variant='contained'>Checkout</Button>
+                <Button onClick ={handleCheckout} sx={{mt:3 , p:1, background: '#039103' }} variant='contained'>Checkout</Button>
             </Link>
         </Box>
       </Container>
