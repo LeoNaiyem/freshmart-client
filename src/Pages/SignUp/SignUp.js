@@ -8,10 +8,10 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 const SignUp = () => {
   const { register, handleSubmit, reset } = useForm();
-  const { handelCreateUser } = useAuth();
+  const { handelCreateUser, handleGoogleLogin } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
-  const from = location?.state?.from?.pathname || '/';
+  const from = location?.state?.from?.pathname || "/";
 
   //handling create user
   const onSubmit = (data) => {
@@ -146,6 +146,7 @@ const SignUp = () => {
             Continue with Facebook
           </Button>
           <Button
+            onClick={() => handleGoogleLogin(navigate, from)}
             sx={{ width: "100%", borderRadius: "15px" }}
             variant="outlined"
             startIcon={<GoogleIcon />}

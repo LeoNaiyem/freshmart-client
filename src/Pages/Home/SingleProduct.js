@@ -7,13 +7,9 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import React from "react";
 import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
 
 const SingleProduct = ({ product }) => {
   const { _id, name, price, photoUrl } = product;
-  const handleBuyNow = () => {
-    toast("You Are Redirected To Checkout Page!");
-  };
   return (
     <Grid item xs={4} sm={4} md={4}>
       <Card
@@ -58,7 +54,6 @@ const SingleProduct = ({ product }) => {
           </Typography>
           <Link to={`/checkout/${_id}`}>
             <Button
-              onClick={handleBuyNow}
               variant="contained"
               sx={{ background: "#039103" }}
             >
