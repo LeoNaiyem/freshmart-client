@@ -20,7 +20,7 @@ const Checkout = () => {
   const { user } = useAuth();
 
   useEffect(() => {
-    const url = `http://localhost:5001/products/${id}`;
+    const url = `https://sheltered-lake-72050.herokuapp.com/products/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
@@ -41,7 +41,7 @@ const Checkout = () => {
     };
 
     //sending orderInfo to the server
-    fetch("http://localhost:5001/orders", {
+    fetch("https://sheltered-lake-72050.herokuapp.com/orders", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

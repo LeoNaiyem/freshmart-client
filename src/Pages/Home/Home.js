@@ -9,7 +9,7 @@ const Home = () => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    fetch("http://localhost:5001/products")
+    fetch("https://sheltered-lake-72050.herokuapp.com/products")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);

@@ -1,15 +1,15 @@
 import {
-  Box,
-  CircularProgress,
-  Container,
-  Paper,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Typography
+    Box,
+    CircularProgress,
+    Container,
+    Paper,
+    Table,
+    TableBody,
+    TableCell,
+    TableContainer,
+    TableHead,
+    TableRow,
+    Typography
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
@@ -19,7 +19,7 @@ const ManageProducts = () => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    fetch("http://localhost:5001/products")
+    fetch("https://sheltered-lake-72050.herokuapp.com/products")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
@@ -32,7 +32,7 @@ const ManageProducts = () => {
       "Are you sure you want to delete this product?"
     );
     if (confirmed) {
-      fetch(`http://localhost:5001/products/${id}`, {
+      fetch(`https://sheltered-lake-72050.herokuapp.com/products/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

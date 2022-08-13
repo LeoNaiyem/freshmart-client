@@ -1,15 +1,15 @@
 import {
-  Box,
-  CircularProgress,
-  Container,
-  Paper,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Typography
+    Box,
+    CircularProgress,
+    Container,
+    Paper,
+    Table,
+    TableBody,
+    TableCell,
+    TableContainer,
+    TableHead,
+    TableRow,
+    Typography
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
@@ -23,7 +23,7 @@ const Orders = () => {
   const { user } = useAuth();
 
   useEffect(() => {
-    fetch(`http://localhost:5001/orders?email=${user.email}`)
+    fetch(`https://sheltered-lake-72050.herokuapp.com/orders?email=${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         setOrders(data);
@@ -36,7 +36,7 @@ const Orders = () => {
       "Are you sure you want to cancel the order?"
     );
     if (confirmed) {
-      fetch(`http://localhost:5001/orders/${id}`, {
+      fetch(`https://sheltered-lake-72050.herokuapp.com/orders/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

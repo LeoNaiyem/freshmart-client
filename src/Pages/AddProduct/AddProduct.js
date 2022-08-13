@@ -1,11 +1,11 @@
 import {
-  Box,
-  Button,
-  CircularProgress,
-  Container,
-  Paper,
-  TextField,
-  Typography
+    Box,
+    Button,
+    CircularProgress,
+    Container,
+    Paper,
+    TextField,
+    Typography
 } from "@mui/material";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -38,7 +38,7 @@ const AddProduct = () => {
             weight: data.productWeight,
             photoUrl: imgUtl,
           };
-          fetch("http://localhost:5001/products", {
+          fetch("https://sheltered-lake-72050.herokuapp.com/products", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
