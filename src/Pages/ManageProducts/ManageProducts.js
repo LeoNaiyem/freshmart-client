@@ -40,8 +40,7 @@ const ManageProducts = () => {
           if (result.deletedCount === 1) {
             const remaining = products.filter((pd) => pd._id !== id);
             setProducts(remaining);
-            toast.info("Product Deleted Successfully!");
-            console.log(result);
+            toast.error("Product Deleted Successfully!");
           }
         });
     }

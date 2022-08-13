@@ -44,7 +44,7 @@ const Orders = () => {
           if (result.deletedCount === 1) {
             const remaining = orders.filter((pd) => pd._id !== id);
             setOrders(remaining);
-            toast.info("Product Deleted Successfully!");
+            toast.error("The Order Has Been Cancelled!");
           }
         });
     }
