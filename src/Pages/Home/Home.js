@@ -9,7 +9,7 @@ const Home = () => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    fetch("https://sheltered-lake-72050.herokuapp.com/products")
+    fetch("https://freshmart-server.onrender.com/products")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);

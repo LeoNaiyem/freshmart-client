@@ -19,7 +19,7 @@ const ManageProducts = () => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    fetch("https://sheltered-lake-72050.herokuapp.com/products")
+    fetch("https://freshmart-server.onrender.com/products")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
@@ -32,7 +32,7 @@ const ManageProducts = () => {
       "Are you sure you want to delete this product?"
     );
     if (confirmed) {
-      fetch(`https://sheltered-lake-72050.herokuapp.com/products/${id}`, {
+      fetch(`https://freshmart-server.onrender.com/products/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

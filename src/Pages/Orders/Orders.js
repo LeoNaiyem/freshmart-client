@@ -23,7 +23,7 @@ const Orders = () => {
   const { user } = useAuth();
 
   useEffect(() => {
-    fetch(`https://sheltered-lake-72050.herokuapp.com/orders?email=${user.email}`)
+    fetch(`https://freshmart-server.onrender.com/orders?email=${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         setOrders(data);
@@ -36,7 +36,7 @@ const Orders = () => {
       "Are you sure you want to cancel the order?"
     );
     if (confirmed) {
-      fetch(`https://sheltered-lake-72050.herokuapp.com/orders/${id}`, {
+      fetch(`https://freshmart-server.onrender.com/orders/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

@@ -38,7 +38,7 @@ const AddProduct = () => {
             weight: data.productWeight,
             photoUrl: imgUtl,
           };
-          fetch("https://sheltered-lake-72050.herokuapp.com/products", {
+          fetch("https://freshmart-server.onrender.com/products", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
